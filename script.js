@@ -1,11 +1,11 @@
 /* ============================================================
    SORONGON PORTFOLIO — script.js
    Sections:
-     1. CONFIG & CONTACT INFO     <- Edit here first
-     2. SKILLS DATA               <- Add/remove skill categories
-     3. EXPERIENCE DATA           <- Add/remove roles
-     4. PROJECTS DATA             <- Add/remove projects
-     5. SOCIALS DATA              <- Add/remove social links
+     1. CONFIG & CONTACT INFO     ← ✦ Edit here first
+     2. SKILLS DATA               ← ✦ Add/remove skill categories
+     3. EXPERIENCE DATA           ← ✦ Add/remove roles
+     4. PROJECTS DATA             ← ✦ Add/remove projects
+     5. SOCIALS DATA              ← ✦ Add/remove social links
      6. CANVAS PARTICLE BG
      7. SCROLL REVEAL
      8. STICKY HEADER
@@ -18,120 +18,65 @@
 
 /* ============================================================
    1. CONFIG & CONTACT INFO
-   Edit these values to match your details.
+   ✦ EDIT these values to match your details
    ============================================================ */
-const MY_TZ_OFFSET = 8;          // Your UTC offset (PHT = UTC+8)
+const MY_TZ_OFFSET = 8;          // ✦ Your UTC offset (PHT = UTC+8)
 const MY_TZ_LABEL  = 'Philippine Standard Time (UTC+8)';
 
 const contactInfo = {
-  email:    'dramessorongon@gmail.com',   // Your email
-  whatsapp: '+639949850210',               // Format: +[country code][number]
-  viber:    '+639949850210',               // Your Viber number
+  email:    'dramessorongon@gmail.com',   // ✦ Your email
+  whatsapp: '+639949850210',               // ✦ Format: +[country code][number]
+  viber:    '+639949850210',               // ✦ Your Viber number
   location: 'Philippines',
   timezone: MY_TZ_LABEL,
 };
 
 /* ============================================================
    2. SKILLS DATA
-   INSTRUCTION 7: Each category now supports an optional `background` image.
-   The image is applied to the top header area of the skill card as a partial overlay.
-   Text remains readable via a CSS gradient overlay.
-
-   HOW TO ADD A NEW CATEGORY:
-     Push a new object into this array:
-     {
-       icon:       'assets/icons/placeholder.png',  // path to your custom icon PNG
-       iconAlt:    'Category label',                // screen-reader alt text
-       title:      'Category Name',
-       background: 'assets/backgrounds/your-image.jpg', // optional background image
-       tags:       ['Tag1', 'Tag2', 'Tag3'],
-     }
-
-   HOW TO CHANGE THE BACKGROUND IMAGE:
-     - Add your image to the assets/backgrounds/ folder.
-     - Update the `background` property value to match the file path.
-     - Example: background: 'assets/backgrounds/automation.jpg'
-     - Remove the `background` property entirely to use the default dark card.
-
-   INSTRUCTION 6: icon property is now a file path (not an emoji).
-     Replace assets/icons/placeholder.png with your own icon PNG files.
+   ✦ To add a category: push a new object to this array
+   ✦ Format: { icon, title, tags: ['tag1', 'tag2', ...] }
    ============================================================ */
 const skillsData = [
-  /* ---- CATEGORY: Automation ---- */
   {
-    icon:       'assets/icons/placeholder.png', /* ICON REPLACE: use an automation/workflow icon */
-    iconAlt:    'Automation icon',
-    title:      'Automation',
-    background: 'assets/backgrounds/automation.jpg', /* BACKGROUND REPLACE: add assets/backgrounds/automation.jpg */
-    tags:       ['n8n', 'Workflow Design', 'API Integration', 'Webhooks', 'Triggers'],
+    icon: '🌐',
+    title: 'Networking',
+    tags: ['TCP/IP', 'Subnetting', 'VLAN', 'DNS', 'Gateway', 'Cisco', 'Aruba', 'Huawei'],
   },
-  /* ---- CATEGORY: Networking ---- */
   {
-    icon:       'assets/icons/placeholder.png', /* ICON REPLACE: use a network/globe icon */
-    iconAlt:    'Networking icon',
-    title:      'Networking',
-    background: 'assets/backgrounds/networking.jpg', /* BACKGROUND REPLACE: add assets/backgrounds/networking.jpg */
-    tags:       ['TCP/IP', 'Subnetting', 'VLAN', 'DNS', 'Gateway', 'Cisco', 'Aruba', 'Huawei'],
+    icon: '💻',
+    title: 'Programming',
+    tags: ['PHP', 'Python', 'HTML', 'CSS', 'JavaScript'],
   },
-  /* ---- CATEGORY: Programming ---- */
   {
-    icon:       'assets/icons/placeholder.png', /* ICON REPLACE: use a code/terminal icon */
-    iconAlt:    'Programming icon',
-    title:      'Programming',
-    background: 'assets/backgrounds/programming.jpg', /* BACKGROUND REPLACE */
-    tags:       ['PHP', 'Python', 'HTML', 'CSS', 'JavaScript'],
+    icon: '⚙️',
+    title: 'Frameworks & Tools',
+    tags: ['CodeIgniter', 'Bootstrap', 'Angular', 'VS Code'],
   },
-  /* ---- CATEGORY: Frameworks & Tools ---- */
   {
-    icon:       'assets/icons/placeholder.png', /* ICON REPLACE: use a tools/wrench icon */
-    iconAlt:    'Frameworks icon',
-    title:      'Frameworks & Tools',
-    /* No background set — card uses default dark surface */
-    tags:       ['CodeIgniter', 'Bootstrap', 'Angular', 'VS Code'],
+    icon: '☁️',
+    title: 'Microsoft 365',
+    tags: ['PowerApps', 'SharePoint', 'Power BI', 'MS Lists', 'Teams', 'OneDrive'],
   },
-  /* ---- CATEGORY: Microsoft 365 ---- */
   {
-    icon:       'assets/icons/placeholder.png', /* ICON REPLACE: use a cloud/Microsoft icon */
-    iconAlt:    'Microsoft 365 icon',
-    title:      'Microsoft 365',
-    background: 'assets/backgrounds/microsoft365.jpg', /* BACKGROUND REPLACE */
-    tags:       ['PowerApps', 'SharePoint', 'Power BI', 'MS Lists', 'Teams', 'OneDrive'],
+    icon: '🖥️',
+    title: 'Systems & OS',
+    tags: ['Windows', 'Linux (learning)', 'OS Reimaging', 'Backup & Recovery', 'Symantec'],
   },
-  /* ---- CATEGORY: Systems & OS ---- */
   {
-    icon:       'assets/icons/placeholder.png', /* ICON REPLACE: use a monitor/OS icon */
-    iconAlt:    'Systems icon',
-    title:      'Systems & OS',
-    /* No background set */
-    tags:       ['Windows', 'Linux (learning)', 'OS Reimaging', 'Backup & Recovery', 'Symantec'],
-  },
-  /* ---- CATEGORY: IT Infrastructure ---- */
-  {
-    icon:       'assets/icons/placeholder.png', /* ICON REPLACE: use a server/hardware icon */
-    iconAlt:    'IT Infrastructure icon',
-    title:      'IT Infrastructure',
-    /* No background set */
-    tags:       ['CCTV / NVR', 'Remote Desktop', 'RDP', 'AnyDesk', 'Smart UPS', 'Hardware Repair'],
+    icon: '📡',
+    title: 'IT Infrastructure',
+    tags: ['CCTV / NVR', 'Remote Desktop', 'RDP', 'AnyDesk', 'Smart UPS', 'Hardware Repair'],
   },
 ];
 
 /* ============================================================
    3. EXPERIENCE DATA
-   HOW TO ADD A ROLE:
-     Push a new object to this array:
-     {
-       period:  'Jan 2020 – Dec 2023',
-       role:    'Job Title',
-       company: 'Company Name',
-       bullets: [
-         'Achievement or responsibility 1.',
-         'Achievement or responsibility 2.',
-       ],
-     }
+   ✦ To add a role: push a new object
+   ✦ Format: { period, role, company, bullets: ['...'] }
    ============================================================ */
 const experienceData = [
   {
-    period:  'May 2024 – Present',
+    period: 'May 2024 – Present',
     role:    'IT Support Engineer',
     company: 'New Panay Agri-Ventures Development, Inc.',
     bullets: [
@@ -143,20 +88,13 @@ const experienceData = [
       'Configured network parameters for servers, mini PCs, NVRs, access points, UPS units, and CCTV infrastructure.',
     ],
   },
-  /* ADD MORE ROLES BELOW — copy the object above and edit */
+  // ✦ ADD MORE ROLES BELOW — copy the object above and edit
 ];
 
 /* ============================================================
    4. PROJECTS DATA
-   HOW TO ADD A PROJECT:
-     Push a new object to this array:
-     {
-       title:   'Project Name',
-       desc:    'One or two sentence description.',
-       tags:    ['Tech1', 'Tech2'],
-       liveUrl: 'https://your-live-link.com', // set to '#' if not applicable
-       repoUrl: 'https://github.com/...',     // set to '#' if not applicable
-     }
+   ✦ To add a project: push a new object
+   ✦ Set liveUrl / repoUrl to '#' if not applicable
    ============================================================ */
 const projectsData = [
   {
@@ -180,45 +118,34 @@ const projectsData = [
     liveUrl: '#',
     repoUrl: '#',
   },
-  /* ADD MORE PROJECTS HERE — copy any object above and edit */
+  // ✦ ADD MORE PROJECTS HERE
 ];
 
 /* ============================================================
    5. SOCIALS DATA
-   INSTRUCTION 6: icon is now a file path, not an emoji.
-   HOW TO ADD A SOCIAL LINK:
-     Push a new object to this array:
-     {
-       icon:    'assets/icons/placeholder.png', // ICON REPLACE: path to your platform icon PNG
-       iconAlt: 'Platform name icon',
-       name:    'Platform Name',
-       handle:  '@yourhandle',
-       url:     'https://platform.com/yourprofile',
-     }
+   ✦ To add a platform: push a new object
+   ✦ icon: any emoji or short text
    ============================================================ */
 const socialsData = [
   {
-    icon:    'assets/icons/placeholder.png', /* ICON REPLACE: use LinkedIn brand icon */
-    iconAlt: 'LinkedIn icon',
-    name:    'LinkedIn',
-    handle:  'Dranoj Sorongon',
-    url:     'https://linkedin.com/',   // Replace with your LinkedIn URL
+    icon:   '💼',
+    name:   'LinkedIn',
+    handle: 'Dranoj Sorongon',
+    url:    'https://linkedin.com/',   // ✦ Replace with your LinkedIn URL
   },
   {
-    icon:    'assets/icons/placeholder.png', /* ICON REPLACE: use GitHub brand icon */
-    iconAlt: 'GitHub icon',
-    name:    'GitHub',
-    handle:  '@dranoj-sorongon',
-    url:     'https://github.com/',     // Replace with your GitHub URL
+    icon:   '🐙',
+    name:   'GitHub',
+    handle: '@dranoj-sorongon',
+    url:    'https://github.com/',     // ✦ Replace with your GitHub URL
   },
   {
-    icon:    'assets/icons/placeholder.png', /* ICON REPLACE: use Facebook brand icon */
-    iconAlt: 'Facebook icon',
-    name:    'Facebook',
-    handle:  'Dranoj Sorongon',
-    url:     'https://facebook.com/',   // Replace with your Facebook URL
+    icon:   '📘',
+    name:   'Facebook',
+    handle: 'Dranoj Sorongon',
+    url:    'https://facebook.com/',   // ✦ Replace with your Facebook URL
   },
-  /* ADD MORE SOCIALS HERE — e.g. Twitter/X, Telegram, Portfolio links */
+  // ✦ ADD MORE SOCIALS HERE — e.g. Twitter/X, Telegram, Portfolio links
 ];
 
 /* ============================================================
@@ -252,7 +179,7 @@ const socialsData = [
       this.a  = Math.random() * 0.5 + 0.1;
       this.life = 0;
       this.maxLife = Math.random() * 300 + 200;
-      /* alternately accent green or cyan */
+      // alternately accent green or cyan
       this.color = Math.random() > 0.6 ? '0,229,255' : '57,255,20';
     }
 
@@ -275,7 +202,7 @@ const socialsData = [
 
   for (let i = 0; i < COUNT; i++) particles.push(new Particle());
 
-  /* Draw grid lines */
+  // Draw grid lines
   function drawGrid() {
     ctx.strokeStyle = 'rgba(255,255,255,0.02)';
     ctx.lineWidth = 1;
@@ -302,7 +229,7 @@ const socialsData = [
    7. SCROLL REVEAL (IntersectionObserver)
    ============================================================ */
 function initReveal() {
-  /* Hero elements */
+  // Hero elements
   document.querySelectorAll('.reveal').forEach(el => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -312,7 +239,7 @@ function initReveal() {
     obs.observe(el);
   });
 
-  /* Section blocks */
+  // Section blocks
   document.querySelectorAll('.reveal-section').forEach(section => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -361,54 +288,25 @@ function animateCounters() {
 
 /* ============================================================
    10. RENDER FUNCTIONS
-   Each function reads its corresponding data array above and
-   generates the HTML for that section. To change content,
-   edit the data arrays — never edit the HTML output directly.
    ============================================================ */
 
-/**
- * Render skills categories.
- * INSTRUCTION 7: Each card now has a .skill-cat-header with an optional background image.
- * INSTRUCTION 6: Icon is rendered as <img class="icon-lg"> instead of emoji text.
- *
- * HOW TO CHANGE A CARD'S BACKGROUND IMAGE:
- *   Update the `background` property in skillsData[n] above.
- *   The image will be applied inline via style attribute here.
- */
+/** Render skills */
 function renderSkills() {
   const container = document.getElementById('skills-container');
   if (!container) return;
 
-  container.innerHTML = skillsData.map(cat => {
-    /* Build inline style for background image if provided */
-    /* HOW TO CHANGE: set cat.background to your image path in skillsData */
-    const bgStyle = cat.background
-      ? `background-image: url('${cat.background}');`
-      : '';
-
-    return `
-      <div class="skill-category">
-        <!-- Card header: holds icon + title over optional background image -->
-        <!-- ICON REPLACE: swap cat.icon path in skillsData to use custom icons -->
-        <div class="skill-cat-header" style="${bgStyle}">
-          <div class="skill-cat-icon">
-            <img src="${cat.icon}" alt="${cat.iconAlt || cat.title}" class="icon-lg" />
-          </div>
-          <div class="skill-cat-title">${cat.title}</div>
-        </div>
-        <!-- Tag pills — edit cat.tags in skillsData to add/remove -->
-        <div class="skill-tags">
-          ${cat.tags.map(t => `<span class="skill-tag">${t}</span>`).join('')}
-        </div>
+  container.innerHTML = skillsData.map(cat => `
+    <div class="skill-category">
+      <div class="skill-cat-icon">${cat.icon}</div>
+      <div class="skill-cat-title">${cat.title}</div>
+      <div class="skill-tags">
+        ${cat.tags.map(t => `<span class="skill-tag">${t}</span>`).join('')}
       </div>
-    `;
-  }).join('');
+    </div>
+  `).join('');
 }
 
-/**
- * Render experience timeline.
- * HOW TO ADD A ROLE: push a new object to experienceData above.
- */
+/** Render experience timeline */
 function renderExperience() {
   const container = document.getElementById('experience-container');
   if (!container) return;
@@ -425,10 +323,7 @@ function renderExperience() {
   `).join('');
 }
 
-/**
- * Render projects grid.
- * HOW TO ADD A PROJECT: push a new object to projectsData above.
- */
+/** Render projects */
 function renderProjects() {
   const container = document.getElementById('projects-container');
   if (!container) return;
@@ -442,28 +337,21 @@ function renderProjects() {
         ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
       </div>
       <div class="project-links">
-        ${p.liveUrl !== '#' ? `<a href="${p.liveUrl}" class="project-link" target="_blank" rel="noopener">Live &rarr;</a>` : ''}
-        ${p.repoUrl !== '#' ? `<a href="${p.repoUrl}" class="project-link" target="_blank" rel="noopener">Repo &rarr;</a>` : ''}
+        ${p.liveUrl !== '#' ? `<a href="${p.liveUrl}" class="project-link" target="_blank" rel="noopener">Live →</a>` : ''}
+        ${p.repoUrl !== '#' ? `<a href="${p.repoUrl}" class="project-link" target="_blank" rel="noopener">Repo →</a>` : ''}
       </div>
     </div>
   `).join('');
 }
 
-/**
- * Render socials grid.
- * INSTRUCTION 6: icon is rendered as <img class="icon-lg"> instead of emoji text.
- * HOW TO ADD A SOCIAL: push a new object to socialsData above.
- */
+/** Render socials */
 function renderSocials() {
   const container = document.getElementById('socials-container');
   if (!container) return;
 
   container.innerHTML = socialsData.map(s => `
     <a href="${s.url}" class="social-card" target="_blank" rel="noopener">
-      <!-- ICON REPLACE: update s.icon path in socialsData to use custom platform icons -->
-      <div class="social-icon">
-        <img src="${s.icon}" alt="${s.iconAlt || s.name}" class="icon-lg" />
-      </div>
+      <div class="social-icon">${s.icon}</div>
       <div>
         <div class="social-name">${s.name}</div>
         <div class="social-handle">${s.handle}</div>
@@ -472,20 +360,13 @@ function renderSocials() {
   `).join('');
 }
 
-/**
- * Render contact details.
- * INSTRUCTION 6: All contact icons rendered as <img class="icon"> tags.
- * ICON REPLACE comments indicate which icon each slot needs.
- */
+/** Render contact details */
 function renderContactDetails() {
-  const set = (id, iconSrc, iconAlt, label, href) => {
+  const set = (id, icon, label, href) => {
     const el = document.getElementById(id);
     if (!el) return;
     el.innerHTML = `
-      <span class="contact-icon">
-        <!-- ICON REPLACE: swap src to a custom icon PNG for each contact type -->
-        <img src="${iconSrc}" alt="${iconAlt}" class="icon" />
-      </span>
+      <span class="contact-icon">${icon}</span>
       ${href
         ? `<a href="${href}">${label}</a>`
         : `<span>${label}</span>`
@@ -493,32 +374,32 @@ function renderContactDetails() {
     `;
   };
 
-  /* ICON REPLACE: replace each placeholder path with the appropriate icon */
-  set('contact-email-el',    'assets/icons/placeholder.png', 'Email icon',    contactInfo.email,                     `mailto:${contactInfo.email}`);
-  set('contact-whatsapp-el', 'assets/icons/placeholder.png', 'WhatsApp icon', `WhatsApp: ${contactInfo.whatsapp}`,   `https://wa.me/${contactInfo.whatsapp.replace(/\D/g,'')}`);
-  set('contact-viber-el',    'assets/icons/placeholder.png', 'Viber icon',    `Viber: ${contactInfo.viber}`,         `viber://chat?number=${contactInfo.viber.replace(/\D/g,'')}`);
-  set('contact-location-el', 'assets/icons/placeholder.png', 'Location icon', contactInfo.location,                  null);
-  set('contact-tz-el',       'assets/icons/placeholder.png', 'Timezone icon', contactInfo.timezone,                  null);
+  set('contact-email-el',    '✉️', contactInfo.email,    `mailto:${contactInfo.email}`);
+  set('contact-whatsapp-el', '💬', `WhatsApp: ${contactInfo.whatsapp}`, `https://wa.me/${contactInfo.whatsapp.replace(/\D/g,'')}`);
+  set('contact-viber-el',    '📱', `Viber: ${contactInfo.viber}`,       `viber://chat?number=${contactInfo.viber.replace(/\D/g,'')}`);
+  set('contact-location-el', '📍', contactInfo.location, null);
+  set('contact-tz-el',       '🕐', contactInfo.timezone, null);
 }
 
 /* ============================================================
    11. CONTACT FORM + TIMEZONE CONVERTER
    ============================================================ */
 function initContactForm() {
-  /* Populate timezone selector */
+  // Populate timezone selector
   const tzSelect = document.getElementById('cf-tz');
   if (tzSelect) {
+    // Common offsets
     const zones = [
       { label: 'UTC-12:00 (Baker Island)',        offset: -12 },
       { label: 'UTC-11:00 (Samoa)',               offset: -11 },
       { label: 'UTC-10:00 (Hawaii)',              offset: -10 },
       { label: 'UTC-09:00 (Alaska)',              offset: -9  },
-      { label: 'UTC-08:00 (Pacific - US)',        offset: -8  },
-      { label: 'UTC-07:00 (Mountain - US)',       offset: -7  },
-      { label: 'UTC-06:00 (Central - US)',        offset: -6  },
-      { label: 'UTC-05:00 (Eastern - US)',        offset: -5  },
+      { label: 'UTC-08:00 (Pacific — US)',        offset: -8  },
+      { label: 'UTC-07:00 (Mountain — US)',       offset: -7  },
+      { label: 'UTC-06:00 (Central — US)',        offset: -6  },
+      { label: 'UTC-05:00 (Eastern — US)',        offset: -5  },
       { label: 'UTC-04:00 (Atlantic)',            offset: -4  },
-      { label: 'UTC-03:00 (Brasilia)',            offset: -3  },
+      { label: 'UTC-03:00 (Brasília)',            offset: -3  },
       { label: 'UTC-02:00',                       offset: -2  },
       { label: 'UTC-01:00 (Azores)',              offset: -1  },
       { label: 'UTC+00:00 (London / GMT)',        offset:  0  },
@@ -537,7 +418,7 @@ function initContactForm() {
       { label: 'UTC+12:00 (Auckland)',            offset:  12 },
     ];
 
-    /* Pre-select the visitor's local offset */
+    // Try to pre-select user's local offset
     const localOffset = -(new Date().getTimezoneOffset() / 60);
 
     zones.forEach(z => {
@@ -549,7 +430,7 @@ function initContactForm() {
     });
   }
 
-  /* TZ conversion on input change */
+  // TZ conversion on change
   function updateTZResult() {
     const dateVal = document.getElementById('cf-date').value;
     const timeVal = document.getElementById('cf-time').value;
@@ -562,14 +443,16 @@ function initContactForm() {
     }
 
     try {
+      // Parse as UTC then shift
       const [y, m, d] = dateVal.split('-').map(Number);
       const [hh, mm] = timeVal.split(':').map(Number);
 
-      /* Build UTC timestamp from user's local input */
+      // Build UTC timestamp from user's local input
       const userTotalMinutes = hh * 60 + mm - tzOffset * 60;
       const utcDate = new Date(Date.UTC(y, m - 1, d, 0, userTotalMinutes));
 
-      /* Convert to MY timezone */
+      // Convert to MY timezone
+      const myTotalMinutes = utcDate.getUTCHours() * 60 + utcDate.getUTCMinutes() + MY_TZ_OFFSET * 60;
       const myDate = new Date(utcDate);
       myDate.setUTCMinutes(myDate.getUTCMinutes() + MY_TZ_OFFSET * 60);
 
@@ -582,7 +465,7 @@ function initContactForm() {
       });
 
       if (resultEl) {
-        resultEl.textContent = `My time: ${fmtDate}, ${fmtTime} (${MY_TZ_LABEL})`;
+        resultEl.textContent = `📍 My time: ${fmtDate}, ${fmtTime} (${MY_TZ_LABEL})`;
       }
     } catch (e) {
       if (resultEl) resultEl.textContent = 'Unable to convert time.';
@@ -594,9 +477,9 @@ function initContactForm() {
     if (el) el.addEventListener('change', updateTZResult);
   });
 
-  /* Form submit handler */
-  const form      = document.getElementById('contact-form');
-  const status    = document.getElementById('form-status');
+  // Form submit
+  const form    = document.getElementById('contact-form');
+  const status  = document.getElementById('form-status');
   const submitBtn = document.getElementById('submit-btn');
 
   if (form) {
@@ -617,26 +500,17 @@ function initContactForm() {
         return;
       }
 
-      /* FORM ACTION: Replace with your form handler, Formspree, or Netlify Forms.
-         Example Formspree:
-           fetch('https://formspree.io/f/YOUR_ID', {
-             method: 'POST',
-             headers: { 'Accept': 'application/json' },
-             body: new FormData(form),
-           })
-           .then(r => r.ok ? setStatus('Sent!', 'success') : setStatus('Error sending.', 'error'))
-           .catch(() => setStatus('Network error.', 'error'))
-           .finally(() => { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; });
-      */
+      // ✦ FORM ACTION: Replace with your form handler, Formspree, or Netlify Forms
+      // Example Formspree: fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(form) })
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
+      submitBtn.textContent = 'Sending…';
 
-      /* Simulate send — replace this block with real endpoint above */
+      // Simulate send (replace with real endpoint)
       setTimeout(() => {
         form.reset();
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Message';
-        setStatus("Message sent! I'll get back to you within 24 hours.", 'success');
+        setStatus('✓ Message sent! I\'ll get back to you within 24 hours.', 'success');
         document.getElementById('tz-result').textContent = '';
       }, 1500);
     });
@@ -661,7 +535,7 @@ function initMobileMenu() {
     menu.classList.toggle('open');
   });
 
-  /* Close on link click */
+  // Close on link click
   menu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => menu.classList.remove('open'));
   });
@@ -672,25 +546,25 @@ function initMobileMenu() {
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* Footer year */
+  // Footer year
   const fy = document.getElementById('footer-year');
   if (fy) fy.textContent = new Date().getFullYear();
 
-  /* Render dynamic content from data arrays above */
+  // Render dynamic content
   renderSkills();
   renderExperience();
   renderProjects();
   renderSocials();
   renderContactDetails();
 
-  /* Behaviours */
+  // Behaviours
   initStickyHeader();
   initReveal();
   animateCounters();
   initContactForm();
   initMobileMenu();
 
-  /* Trigger hero reveals immediately on load */
+  // Trigger hero reveals immediately
   setTimeout(() => {
     document.querySelectorAll('.hero-section .reveal').forEach(el => {
       el.classList.add('visible');
