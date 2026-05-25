@@ -6,7 +6,7 @@
 
 /* ── 1. CSS CUSTOM PROPERTIES ── */
 :root {
-  /* COLORS: change these to retheme the entire site */
+  /* ✦ COLORS: change these to retheme the entire site */
   --bg:         #050508;
   --bg-surface: #0d0d12;
   --bg-card:    #111118;
@@ -23,18 +23,18 @@
   --glow:       0 0 30px rgba(57,255,20,0.15), 0 0 80px rgba(57,255,20,0.05);
   --glow-cyan:  0 0 30px rgba(0,229,255,0.15);
 
-  /* TYPOGRAPHY */
+  /* ✦ TYPOGRAPHY */
   --font-display: 'Bebas Neue', sans-serif;
   --font-mono:    'DM Mono', monospace;
   --font-ui:      'Space Grotesk', sans-serif;
 
-  /* SPACING */
+  /* ✦ SPACING */
   --section-pad: clamp(80px, 10vw, 140px);
   --inner-max:   1140px;
   --radius:      8px;
   --radius-lg:   16px;
 
-  /* TRANSITIONS */
+  /* ✦ TRANSITIONS */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --dur: 0.55s;
 }
@@ -56,30 +56,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── 3. ICON IMAGES (replaces all emojis globally) ──
-   INSTRUCTION 6: All emojis replaced with <img class="icon" />.
-   Set a consistent size here. Swap the src in HTML/JS to your custom icon PNGs.
-*/
-.icon {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  display: inline-block;
-  vertical-align: middle;
-  flex-shrink: 0;
-}
-
-/* Larger icon variant used in social cards and contact items */
-.icon-lg {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  display: inline-block;
-  vertical-align: middle;
-  flex-shrink: 0;
-}
-
-/* ── 4. CANVAS BACKGROUND ── */
+/* ── 3. CANVAS BACKGROUND ── */
 #bg-canvas {
   position: fixed;
   inset: 0;
@@ -88,7 +65,7 @@ body {
   opacity: 0.6;
 }
 
-/* ── 5. HEADER / NAV ── */
+/* ── 4. HEADER / NAV ── */
 #site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -206,7 +183,7 @@ body {
 .mobile-menu a:hover { color: var(--accent); }
 .mobile-menu.open { display: flex; }
 
-/* ── 6. SECTION COMMON ── */
+/* ── 5. SECTION COMMON ── */
 .section {
   position: relative;
   z-index: 1;
@@ -248,7 +225,7 @@ body {
   transform: none;
 }
 
-/* ── 7. HERO SECTION ── */
+/* ── 6. HERO SECTION ── */
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -333,25 +310,11 @@ body {
   letter-spacing: 0.06em;
 }
 
-/* Hero image + name above it */
-/* INSTRUCTION 1: Name above profile image styling */
+/* Hero image */
 .hero-image {
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-/* Name displayed above the profile photo in the hero */
-.hero-profile-name {
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  text-align: center;
-  text-transform: uppercase;
-  opacity: 0.9;
+  justify-content: center;
 }
 
 .profile-ring {
@@ -430,7 +393,7 @@ body {
   100% { transform: translateX(100%); }
 }
 
-/* ── 8. REVEAL ANIMATIONS ── */
+/* ── 7. REVEAL ANIMATIONS ── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -450,7 +413,7 @@ body {
 .availability-badge.visible { transition-delay: 0.42s; }
 .hero-image.visible    { transition-delay: 0.2s; }
 
-/* ── 9. BUTTONS ── */
+/* ── 8. BUTTONS ── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -491,23 +454,12 @@ body {
 
 .btn-full { width: 100%; justify-content: center; }
 
-/* ── 10. ABOUT SECTION ── */
+/* ── 9. ABOUT SECTION ── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
-}
-
-/* INSTRUCTION 2: Name display in the About section */
-.about-name-display {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-  line-height: 1;
 }
 
 .about-text p {
@@ -574,12 +526,7 @@ body {
   margin-top: 4px;
 }
 
-/* ── 11. SKILLS SECTION ──
-   INSTRUCTION 7: Skill cards now support a background image (partial overlay split layout).
-   The background image is applied to the top portion of the card.
-   Text remains fully readable over a gradient overlay.
-   To change the image: update the `background` property in skillsData (script.js).
-*/
+/* ── 10. SKILLS SECTION ── */
 .skills-categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -590,12 +537,10 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 1.75rem;
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   opacity: 0;
   transform: translateY(20px);
-  display: flex;
-  flex-direction: column;
 }
 
 .reveal-section.in-view .skill-category {
@@ -609,53 +554,9 @@ body {
   box-shadow: var(--glow);
 }
 
-/* Top portion: background image with gradient overlay for readability.
-   INSTRUCTION 7: The image only covers the top ~40% of the card height.
-   The bottom section stays solid dark for text readability.
-   HOW TO CHANGE IMAGE: set `background` in skillsData[n] in script.js.
-   e.g. background: "assets/backgrounds/automation.jpg"
-*/
-.skill-cat-header {
-  position: relative;
-  min-height: 90px;
-  padding: 1.25rem 1.75rem 1rem;
-  background-color: var(--bg-surface);
-  background-size: cover;
-  background-position: center top;
-  /* Gradient overlay ensures icon + title remain readable over any image */
-  background-blend-mode: multiply;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 0.4rem;
-}
-
-/* Darkening gradient over the background image */
-.skill-cat-header::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(5,5,8,0.45) 0%,
-    rgba(5,5,8,0.75) 60%,
-    rgba(17,17,24,1) 100%
-  );
-  pointer-events: none;
-}
-
-/* Icon and title sit above the overlay */
-.skill-cat-icon,
-.skill-cat-title {
-  position: relative;
-  z-index: 1;
-}
-
 .skill-cat-icon {
-  /* INSTRUCTION 6: icon is now an <img class="icon-lg"> rendered by script.js */
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.25rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
 }
 
 .skill-cat-title {
@@ -663,15 +564,13 @@ body {
   font-size: 1.2rem;
   letter-spacing: 0.06em;
   color: var(--text);
+  margin-bottom: 1rem;
 }
 
-/* Bottom portion: tag pills on solid background */
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 1.25rem 1.75rem 1.75rem;
-  flex: 1;
 }
 
 .skill-tag {
@@ -691,7 +590,7 @@ body {
   color: var(--accent);
 }
 
-/* ── 12. EXPERIENCE / TIMELINE ── */
+/* ── 11. EXPERIENCE / TIMELINE ── */
 .timeline {
   position: relative;
   padding-left: 2rem;
@@ -768,7 +667,7 @@ body {
 }
 
 .tl-bullets li::before {
-  content: '\25B8';
+  content: '▸';
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -776,7 +675,7 @@ body {
   top: 3px;
 }
 
-/* ── 13. PROJECTS ── */
+/* ── 12. PROJECTS ── */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -884,7 +783,7 @@ body {
 
 .project-link:hover { color: var(--accent); border-color: var(--accent); }
 
-/* ── 14. SOCIALS ── */
+/* ── 13. SOCIALS ── */
 .socials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -913,11 +812,8 @@ body {
   box-shadow: var(--glow);
 }
 
-/* INSTRUCTION 6: .social-icon now holds an <img class="icon-lg"> */
 .social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.6rem;
   flex-shrink: 0;
 }
 
@@ -935,7 +831,7 @@ body {
   letter-spacing: 0.06em;
 }
 
-/* ── 15. CONTACT SECTION ── */
+/* ── 14. CONTACT SECTION ── */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
@@ -962,14 +858,10 @@ body {
 
 .contact-item a:hover { color: var(--accent); }
 
-/* INSTRUCTION 6: contact-icon now holds an <img class="icon"> */
 .contact-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.1rem;
   width: 28px;
   text-align: center;
-  flex-shrink: 0;
 }
 
 /* Form */
@@ -1070,7 +962,7 @@ body {
 .form-status.success { color: var(--accent); }
 .form-status.error   { color: #ff4444; }
 
-/* ── 16. FOOTER ── */
+/* ── 15. FOOTER ── */
 .site-footer {
   position: relative;
   z-index: 1;
@@ -1091,7 +983,7 @@ body {
   color: var(--text-muted) !important;
 }
 
-/* ── 17. STAGGER DELAYS for cards ── */
+/* ── 16. STAGGER DELAYS for cards ── */
 .skill-category:nth-child(1) { transition-delay: 0.05s; }
 .skill-category:nth-child(2) { transition-delay: 0.12s; }
 .skill-category:nth-child(3) { transition-delay: 0.19s; }
@@ -1112,7 +1004,7 @@ body {
 .social-card:nth-child(3) { transition-delay: 0.15s; }
 .social-card:nth-child(4) { transition-delay: 0.20s; }
 
-/* ── 18. RESPONSIVE ── */
+/* ── 17. RESPONSIVE ── */
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
