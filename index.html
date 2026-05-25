@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dranoj Sorongon — IT Engineer & Dev</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- ✦ FONT: Bebas Neue (display) + DM Mono (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       CANVAS — particle background (rendered by script.js)
+  ============================================================ -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ============================================================
+       HEADER / NAV
+       ✦ Replace assets/logo.png with your own logo file
+  ============================================================ -->
+  <header id="site-header">
+    <nav class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <!-- ✦ LOGO: swap src to your PNG path -->
+        <img src="assets/logo.png" alt="Logo" id="logo-img"
+             onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block'" />
+        <span id="logo-text" style="display:none">DJS</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#socials">Socials</a></li>
+        <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#socials">Socials</a>
+      <a href="#contact">Hire Me</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION 1 — HOME / HERO
+    ============================================================ -->
+    <section id="home" class="section hero-section">
+      <div class="hero-grid">
+
+        <!-- LEFT: Text -->
+        <div class="hero-text">
+          <div class="hero-eyebrow reveal">
+            <span class="dot pulse"></span>
+            Available · Remote · Immediate Start
+          </div>
+          <h1 class="hero-headline reveal">
+            <span class="line">Networks.</span>
+            <span class="line accent-line">Code.</span>
+            <span class="line">Automation.</span>
+          </h1>
+          <p class="hero-sub reveal">
+            IT engineer turned developer — I keep infrastructure running at 98% uptime
+            and build tools that eliminate manual work. PHP · Python · VLAN · Cloud-ready.
+          </p>
+          <div class="hero-actions reveal">
+            <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+            <a href="#projects" class="btn btn-ghost">View Projects ↓</a>
+          </div>
+          <!-- Status badge -->
+          <div class="availability-badge reveal">
+            <span class="badge-icon">🟢</span>
+            Open to remote opportunities worldwide
+          </div>
+        </div>
+
+        <!-- RIGHT: Profile image -->
+        <!-- ✦ PROFILE: Replace assets/profile.png with a no-background PNG of yourself -->
+        <div class="hero-image reveal">
+          <div class="profile-ring">
+            <img src="assets/profile.png" alt="Dranoj Sorongon"
+                 onerror="this.src='https://placehold.co/340x420/0a0a0a/39ff14?text=DJS'" />
+          </div>
+          <div class="profile-glow"></div>
+        </div>
+
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-hint">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2 — ABOUT
+    ============================================================ -->
+    <section id="about" class="section reveal-section">
+      <div class="section-inner">
+        <div class="section-label">/ About</div>
+        <h2 class="section-title">Who I Am</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              BS Information Technology graduate with hands-on experience running large-scale
+              IT infrastructure — 500+ CCTV endpoints, 200+ workstations, multi-site networks.
+              Now channelling that systems-thinking into clean, automatable code.
+            </p>
+            <p>
+              I script what others do manually, configure what others leave default,
+              and document what others forget. Based in the Philippines,
+              working on <strong>Philippine Standard Time (UTC+8)</strong>.
+            </p>
+          </div>
+          <div class="about-stats">
+            <!-- ✦ STATS: update numbers as needed -->
+            <div class="stat-card"><span class="stat-num" data-target="2">0</span><span class="stat-unit">yrs+</span><div class="stat-label">IT Experience</div></div>
+            <div class="stat-card"><span class="stat-num" data-target="98">0</span><span class="stat-unit">%</span><div class="stat-label">Uptime Achieved</div></div>
+            <div class="stat-card"><span class="stat-num" data-target="500">0</span><span class="stat-unit">+</span><div class="stat-label">Devices Managed</div></div>
+            <div class="stat-card"><span class="stat-num" data-target="10">0</span><span class="stat-unit">+</span><div class="stat-label">Daily Support Sessions</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3 — SKILLS
+         ✦ DATA: Edit skillsData array in script.js to add/remove skills
+    ============================================================ -->
+    <section id="skills" class="section reveal-section">
+      <div class="section-inner">
+        <div class="section-label">/ Skills</div>
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-categories" id="skills-container">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4 — EXPERIENCE
+         ✦ DATA: Edit experienceData array in script.js
+    ============================================================ -->
+    <section id="experience" class="section reveal-section">
+      <div class="section-inner">
+        <div class="section-label">/ Experience</div>
+        <h2 class="section-title">Work History</h2>
+        <div class="timeline" id="experience-container">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5 — PROJECTS
+         ✦ DATA: Edit projectsData array in script.js
+    ============================================================ -->
+    <section id="projects" class="section reveal-section">
+      <div class="section-inner">
+        <div class="section-label">/ Projects</div>
+        <h2 class="section-title">Things I've Built</h2>
+        <div class="projects-grid" id="projects-container">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6 — SOCIALS
+         ✦ DATA: Edit socialsData array in script.js
+    ============================================================ -->
+    <section id="socials" class="section reveal-section">
+      <div class="section-inner">
+        <div class="section-label">/ Socials</div>
+        <h2 class="section-title">Find Me Online</h2>
+        <div class="socials-grid" id="socials-container">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7 — CONTACT
+         ✦ TIMEZONE: MY timezone is set in script.js → MY_TZ_OFFSET (default: +8)
+         ✦ CONTACT: Update email, whatsapp, viber in script.js → contactInfo
+    ============================================================ -->
+    <section id="contact" class="section reveal-section">
+      <div class="section-inner">
+        <div class="section-label">/ Contact</div>
+        <h2 class="section-title">Start a Conversation</h2>
+
+        <div class="contact-grid">
+
+          <!-- Contact Details -->
+          <div class="contact-details">
+            <div class="contact-item" id="contact-email-el"></div>
+            <div class="contact-item" id="contact-whatsapp-el"></div>
+            <div class="contact-item" id="contact-viber-el"></div>
+            <div class="contact-item" id="contact-location-el"></div>
+            <div class="contact-item" id="contact-tz-el"></div>
+          </div>
+
+          <!-- Contact Form + Scheduler -->
+          <div class="contact-form-wrap">
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="cf-name">Name</label>
+                <input type="text" id="cf-name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" rows="4" placeholder="Tell me about your project..." required></textarea>
+              </div>
+
+              <!-- Scheduler -->
+              <div class="scheduler-block">
+                <div class="scheduler-title">📅 Schedule a Call (Optional)</div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cf-date">Your Date</label>
+                    <input type="date" id="cf-date" />
+                  </div>
+                  <div class="form-group">
+                    <label for="cf-time">Your Time</label>
+                    <input type="time" id="cf-time" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cf-tz">Your Timezone</label>
+                  <select id="cf-tz"></select>
+                </div>
+                <div class="tz-result" id="tz-result">
+                  <!-- Displays converted time in my timezone -->
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                Send Message
+              </button>
+              <div class="form-status" id="form-status"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>Built by Dranoj James A. Sorongon · <span id="footer-year"></span></p>
+    <p class="footer-sub">Open to remote work · Philippines (UTC+8)</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
