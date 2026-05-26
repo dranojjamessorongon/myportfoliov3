@@ -506,13 +506,14 @@ function initContactForm() {
       submitBtn.textContent = 'Sending…';
 
       // Simulate send (replace with real endpoint)
-      setTimeout(() => {
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-        setStatus('✓ Message sent! I\'ll get back to you within 24 hours.', 'success');
-        document.getElementById('tz-result').textContent = '';
-      }, 1500);
+      fetch('https://formspree.io/f/xvzywvpp', {
+  method: 'POST',
+  headers: { 'Accept': 'application/json' },
+  body: new FormData(form),
+})
+.then(r => r.ok ? setStatus('✓ Sent!', 'success') : setStatus('Error sending.', 'error'))
+.catch(() => setStatus('Network error.', 'error'))
+.finally(() => { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; });
     });
   }
 
